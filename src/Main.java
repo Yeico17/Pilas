@@ -1,15 +1,50 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+void main() {
+    System.out.println("=== Prueba de ListStack ===");
+    ListStack listStack = new ListStack();
+    System.out.println("¿Está vacía? " + listStack.isEmpty());
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
-    }
+    listStack.push(1);
+    listStack.push("Juan");
+    listStack.push(true);
+    System.out.println(listStack.toString());
+    System.out.println("Tamaño: " + listStack.getSize());
+    System.out.println("Peek: " + listStack.peek());
+
+    Object desapilado = listStack.pop();
+    System.out.println("Se desapiló: " + desapilado);
+    System.out.println(listStack.toString());
+    System.out.println("Tamaño: " + listStack.getSize());
+//termine
+    listStack.clear();
+    System.out.println("Después de clear: " + listStack.toString());
+    System.out.println("¿Está vacía? " + listStack.isEmpty());
+
+    System.out.println();
+    System.out.println("=== Prueba de ArrayStack ===");
+    ArrayStack arrayStack = new ArrayStack(5);
+    System.out.println("¿Está vacía? " + arrayStack.isEmpty());
+
+    arrayStack.push(1);
+    arrayStack.push("Juan");
+    arrayStack.push(true);
+    System.out.println(arrayStack.toString());
+    System.out.println("Tamaño: " + arrayStack.getSize());
+    System.out.println("Peek: " + arrayStack.peek());
+
+    Object desapiladoArray = arrayStack.pop();
+    System.out.println("Se desapiló: " + desapiladoArray);
+    System.out.println(arrayStack.toString());
+    System.out.println("Tamaño: " + arrayStack.getSize());
+
+    arrayStack.push("A");
+    arrayStack.push("B");
+    arrayStack.push("C");
+    System.out.println(arrayStack.toString());
+    System.out.println("¿Está llena? " + arrayStack.isFull());
+    boolean resultado = arrayStack.push("D");
+    System.out.println("¿Se pudo agregar 'D'? " + resultado);
+
+    arrayStack.clear();
+    System.out.println("Después de clear: " + arrayStack.toString());
+    System.out.println("¿Está vacía? " + arrayStack.isEmpty());
 }
